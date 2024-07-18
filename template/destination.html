@@ -1,0 +1,300 @@
+<!DOCTYPE html>
+{% load static %}
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>DESTINATIONS</title>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap');
+        /* Reset default margin and padding */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+/* Basic styling for the page */
+body {
+    font-family: 'Poppins', Arial, sans-serif;
+    background-color: #f4f4f4;
+}
+
+header {
+    background-color: #e62121;
+    color: #ecf0f1;
+    text-align: center;
+    padding: 10px 0;
+}
+
+.container {
+    max-width: 1200px;
+    margin: auto;
+    padding: 15px;
+}
+
+.grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 20px;
+}
+
+.destination {
+    background-color: #ffffff;
+    border-radius: 8px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    overflow: hidden;
+}
+
+.destination .images {
+    display: flex;
+    flex-wrap: wrap;
+}
+
+.destination .images img {
+    width: 50%;
+    height: auto;
+}
+
+.destination h3 {
+    margin: 0;
+    padding: 15px;
+    background-color: #e61c1c;
+    color: #ffffff;
+}
+
+.destination p {
+    padding: 0 15px 15px;
+}
+
+.button-container {
+    text-align: center;
+    margin-top: 20px;
+}
+
+.button-container .btn {
+    background-color: #4CAF50;
+    color: white;
+    padding: 10px 20px;
+    border: none;
+    border-radius: 3px;
+    cursor: pointer;
+    font-size: 16px;
+    width: 200px;
+}
+
+.button-container .btn:hover {
+    background-color: #45a049;
+}
+
+/* Form styles */
+.form-container {
+    display: none;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.5);
+    z-index: 9999;
+    justify-content: center;
+    align-items: center;
+}
+
+.form-content {
+    background-color: #fff;
+    padding: 20px;
+    border-radius: 8px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
+    max-width: 600px;
+    width: 100%;
+}
+
+.form-content h2 {
+    margin-bottom: 20px;
+    text-align: center;
+    color: #333;
+}
+
+.form-content label {
+    display: block;
+    margin-bottom: 8px;
+}
+
+.form-content input[type="text"],
+.form-content input[type="email"],
+.form-content textarea {
+    width: calc(100% - 20px);
+    padding: 8px;
+    margin-bottom: 12px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    font-size: 16px;
+}
+
+.form-content textarea {
+    height: 120px;
+}
+
+.form-content .btn-container {
+    text-align: center;
+    margin-top: 20px;
+}
+
+.form-content .btn {
+    background-color: #007bff;
+    color: #fff;
+    padding: 10px 20px;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    font-size: 16px;
+    transition: background-color 0.3s ease;
+}
+
+.form-content .btn:hover {
+    background-color: #0056b3;
+}
+
+.close-btn {
+    position: absolute;
+    top: 10px;
+    right: 10px;
+    font-size: 24px;
+    cursor: pointer;
+    color: #999;
+}
+         .btn1 {
+            background-color: #4CAF50;
+            color: white;
+            padding: 10px 20px;
+            border: none;
+            border-radius: 3px;
+            cursor: pointer;
+            font-size: 16px;
+            margin-left: 500px;
+            margin-top:30px;
+        }
+
+    </style>
+    <script>
+    // Function to open the form
+    function openForm() {
+        document.getElementById("formContainer").style.display = "flex";
+    }
+
+    // Function to close the form
+    function closeForm() {
+        document.getElementById("formContainer").style.display = "none";
+    }
+</script>
+
+</head>
+<body>
+    <header>
+        <h1>Top Travel Destinations</h1>
+        {% for x in profile_data %}
+        <h4>Hi {{x.name}}</h4>
+        {% endfor %}
+    </header>
+    <div class="container">
+        <div class="grid">
+            <div class="destination">
+                <h3>Delhi, India</h3>
+                <div class="images">
+                    <img src="{% static 'image/pexels-quang-nguyen-vinh-222549-2161449.jpg' %}" alt="Delhi Image 1">
+                    <img src="{% static 'image/himachal.jpg' %}" alt="Delhi Image 2">
+                    <img src="{% static 'image/kerala.jpg' %}" alt="Delhi Image 3">
+                    <img src="{% static 'image/KASHMIR.jpg' %}" alt="Delhi Image 4">
+                </div>
+                <p>The city of light and love, home to the Eiffel Tower and rich cultural heritage.</p>
+            </div>
+            <div class="destination">
+                <h3>Tokyo, Japan</h3>
+                <div class="images">
+                    <img src="{% static 'image/jap1.jpg' %}" alt="Tokyo Image 1">
+                    <img src="{% static 'image/jap2.jpg' %}" alt="Tokyo Image 2">
+                    <img src="{% static 'image/jap3.webp' %}" alt="Tokyo Image 3">
+                    <img src="{% static 'image/jap4.webp' %}" alt="Tokyo Image 4">
+                </div>
+                <p>A bustling metropolis blending traditional culture with cutting-edge technology.</p>
+            </div>
+            <div class="destination">
+                <h3>New York City, USA</h3>
+                <div class="images">
+                    <img src="{% static 'image/united1.webp' %}" alt="New York Image 1">
+                    <img src="{% static 'image/united2.jpg' %}" alt="New York Image 2">
+                    <img src="{% static 'image/united3.avif' %}" alt="New York Image 3">
+                    <img src="{% static 'image/united4.jpg' %}" alt="New York Image 4">
+                </div>
+                <p>The United States of America (USA) is a preferred travel destination for many due its Beach, International, Hills & Mountains, Adventure and Heritage. Get to relish the local cuisine, learn about their culture and create tons of memories.</p>
+            </div>
+            <div class="destination">
+                <h3>London, United Kingdom</h3>
+                <div class="images">
+                    <img src="{% static 'image/lon1.jpg' %}" alt="London Image 1">
+                    <img src="{% static 'image/lon2.jpeg' %}" alt="London Image 2">
+                    <img src="{% static 'image/lon3.jpg' %}" alt="London Image 3">
+                    <img src="{% static 'image/lon4.jpg' %}" alt="London Image 4">
+                </div>
+                <p>The eternal city, steeped in history with landmarks like the Colosseum and Vatican City.</p>
+            </div>
+            <div class="destination">
+                <h3>Bali, Indonesia</h3>
+                <div class="images">
+                    <img src="{% static 'image/indo1.jpeg' %}" alt="Bali Image 1">
+                    <img src="{% static 'image/indo2.jpg' %}" alt="Bali Image 2">
+                    <img src="{% static 'image/indo3.jpg' %}" alt="Bali Image 3">
+                    <img src="{% static 'image/indo4.jpg' %}" alt="Bali Image 4">
+                </div>
+                <p>Known for its Sydney Opera House, stunning harbor, and vibrant lifestyle.</p>
+            </div>
+            <div class="destination">
+                <h3>Australia</h3>
+                <div class="images">
+                    <img src="{% static 'image/aus1.jpeg' %}" alt="Australia Image 1">
+                    <img src="{% static 'image/aus2.webp' %}" alt="Australia Image 2">
+                    <img src="{% static 'image/aus3.jpg' %}" alt="Australia Image 3">
+                    <img src="{% static 'image/aus4.jpeg' %}" alt="Australia Image 4">
+                </div>
+                <p>Australia is a popular tourist destination for many reasons, including its natural environment, food and wine, and friendly people.</p>
+            </div>
+        </div>
+        <!-- Form container -->
+        <div class="form-container" id="formContainer">
+            <div class="form-content">
+                <span class="close-btn" onclick="closeForm()">&times;</span>
+                <h2>Book Your Travel</h2>
+                <form action="{% url 'form' %}" method="POST">
+                    {% csrf_token %}
+                    <label for="name">Name:</label>
+                    <input type="text" id="name" name="name" required>
+                    <label for="email">Email:</label>
+                    <input type="email" id="email" name="email" required>
+                    <label for="destination">Destination:</label>
+                    <select id="destination" name="destination" required>
+                        <option value="">Select a destination</option>
+                        <option value="Delhi, India">Delhi, India</option>
+                        <option value="Tokyo, Japan">Tokyo, Japan</option>
+                        <option value="New York City, USA">New York City, USA</option>
+                        <option value="London, United Kingdom">London, United Kingdom</option>
+                        <option value="Bali, Indonesia">Bali, Indonesia</option>
+                        <option value="Australia">Australia</option>
+                    </select>
+                    <label for="date">Date:</label>
+                    <input type="date" id="date" name="date" required>
+                    <div class="btn-container">
+
+                        <button type="submit" class="btn">Submit</button>
+                    </div>
+                </form>
+            </div>
+        </div>
+        <!-- Button to open form -->
+        <button class="btn1" onclick="openForm()">Book now</button>
+    </div>
+
+
+
+</body>
+</html>

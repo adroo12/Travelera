@@ -1,0 +1,432 @@
+<!DOCTYPE html>
+{% load static %}
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>TRAVELERA</title>
+    <link rel="stylesheet" href="{% static 'css/style.css' %}">
+    <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
+<style>
+    nav a{
+    font-size:14px;
+    color:black;
+    padding: 15px;
+    }
+    nav{
+    margin-left:300px;
+    }
+</style>
+</head>
+<body>
+    <header>
+        <nav class="nav">
+            <a href="" style="text-decoration-line:none">Home</a>
+            <a href="" style="text-decoration-line:none">Contacts</a>
+            <a href="{% url 'testing' %}" style="text-decoration-line:none">Destinations</a>
+            <a href="{% url 'signup' %}" style="text-decoration-line:none">Registration</a>
+            <a href="{% url 'signin' %}" style="text-decoration-line:none">Login</a>
+        </nav>
+    </header>
+
+    <!-- carousel --> 
+    <div class="carousel">
+        <!-- list item -->
+        <div class="list">
+            <div class="item">
+                <img src="{% static 'image/traveling-with-off-road-car (1).jpg' %}">
+                <div class="content">
+                    <div class="author">WELCOME TO</div>
+                    <div class="title">TRAVELERA</div>
+                    <div class="topic">INDIA</div>
+                    <div class="des" style="font-size:12px;">
+                        India is a country of incredible beauty and diversity, blessed with abundant natural resources. From its spectacular mountain ranges, lush forests, and diverse wildlife to its stunning beaches, awe-inspiring monuments, and vibrant culture, India is a country that never fails to impress
+                    </div>
+                    <div class="buttons">
+                        <button id="more"><a style="text-decoration-line:none" href="{% url 'testing' %}">SEE MORE</a></button>
+                        <button id="book">BOOK NOW</button>
+                    </div>
+                </div>
+            </div>
+            <div class="item">
+                <img src="{% static 'image/Designer (8).jpeg' %}">
+                <div class="content">
+                    <div class="author"></div>
+                    <div class="title">Enjoy Festival of colors</div>
+                    <div class="topic">HOLI</div>
+                    <div class="des">
+                        Holi is a Hindu festival that celebrates spring, love, and new life. Some families hold religious ceremonies, but for many Holi is more a time for fun. It's a colourful festival, with dancing, singing and throwing of powder paint and coloured water. Holi is also known as the "festival of colours".
+                    </div>
+                </div>
+            </div>
+            <div class="item">
+                <img src="{% static 'image/Designer (9).jpeg' %}">
+                <div class="content">
+                    <div class="author"></div>
+                    <div class="title">Explore the back waters of</div>
+                    <div class="topic">KERALA</div>
+                    <div class="des">
+                        Named as one of the ten paradises of the world by National Geographic Traveler, Kerala is one of the prominent tourist destinations of India, with coconut-lined sandy beaches, backwaters, hill stations, Ayurvedic tourism and tropical greenery
+                    </div>
+                    
+                </div>
+            </div>
+            <div class="item">
+                <img src="{% static 'image/himachal.jpg' %} ">
+                <div class="content">
+                    <div class="author"></div>
+                    <div class="title">Experience the Beauty</div>
+                    <div class="topic">JAMMU & KASHMIR</div>
+                    <div class="des">
+                        Jammu and Kashmir is well-known for its attractive glory, snow-covered mountains, abundant flora and fauna, elegant memorials, friendly people, and local craftwork. Jammu and Kashmir is one of the largest states in India.
+                    </div>
+                 
+                   
+                </div>
+            </div>
+        </div>
+
+
+        <!-- list thumnail -->
+        <div class="thumbnail">
+            <div class="item">
+                <img src="{% static 'image/traveling-with-off-road-car (1).jpg' %}">
+                <div class="content">
+                    <div class="title">
+                        HOME PAGE
+                    </div>
+                    <div class="description">
+                
+                    </div>
+                </div>
+            </div>
+            <div class="item">
+                <img src="{% static 'image/Designer (8).jpeg' %} ">
+                <div class="content">
+                    <div class="title">
+                        HOLI
+                    </div>
+                    <div class="description">
+                        The festival of Colors
+                    </div>
+                </div>
+            </div>
+            <div class="item">
+                <img src="{% static 'image/Designer (9).jpeg' %}">
+                <div class="content">
+                    <div class="title">
+                        KERALA
+                    </div>
+                    <div class="description">
+                        GODS OWN COUNTRY
+                    </div>
+                </div>
+            </div>
+            <div class="item">
+                <img src="{% static 'image/himachal.jpg' %}">
+                <div class="content">
+                    <div class="title">
+                        HIMALAYAS
+                    </div>
+                    <div class="description">
+                        The great mountains
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!-- next prev -->
+
+        <div class="arrows">
+            <button id="prev"><</button>
+            <button id="next">></button>
+        </div>
+        <!-- time running -->
+        <div class="time"></div>
+    </div><br><br><br>
+    <!-- Booking Start -->
+    <div class="booking" id="booking">
+    <h1>Book now!</h1>
+    <div class="container pb-5">
+        <div class="bg-light shadow" style="padding: 50px;">
+            <div class="row align-items-center" style="min-height: 60px;">
+                <div class="col-md-8">
+                    <div class="row">
+                        <div class="col-md-3 mb-3 mb-md-0">
+                            <div class="date" id="name" data-target-input="nearest">
+                                <input type="text" class="form-control p-4 datetimepicker-input" placeholder="Name" data-target="#name" data-toggle="name"/>
+                            </div>
+                        </div>
+                        <div class="col-md-3 mb-3 mb-md-0">
+                            <div class="date" id="email" data-target-input="nearest">
+                                <input type="email" class="form-control p-4 datetimepicker-input" placeholder="Email" data-target="#email" data-toggle="email"/>
+                            </div>
+                        </div>
+                        <div class="col-md-2 mb-3 mb-md-0">
+                            <div class="date" id="phone" data-target-input="nearest">
+                                <input type="tel" class="form-control p-4 datetimepicker-input" placeholder="Phone" data-target="#phone" style="width: 100%;" data-toggle="phone"/>
+                            </div>
+                        </div>
+                        <div class="col-md-2 mb-3 mb-md-0">
+                            <select class="custom-select px-4" style="height: 47px; width: 100%;">
+                                <option selected>Destination</option>
+                                <option value="1">Destination 1</option>
+                                <option value="2">Destination 2</option>
+                                <option value="3">Destination 3</option>
+                            </select>
+                        </div>
+                        <div class="col-md-2 mb-3 mb-md-0">
+                            <select class="custom-select px-4" style="height: 47px; width: 100%;">
+                                <option selected>Duration</option>
+                                <option value="1">One day</option>
+                                <option value="2">Three days</option>
+                                <option value="3">Five days</option>
+                                <option value="4">Other</option>
+                            </select>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-4">
+                    <button class="btn btn-primary btn-block" type="submit" style="height: 47px; width: 100%;">Submit</button>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+    <!-- Booking End -->
+
+
+   <!-- Destination Start -->
+<div class="top-destinations">
+    <div class="container pt-5 pb-3">
+        <div class="text-center mb-3 pb-3">
+            <!-- <h6 class="text-primary text-uppercase" style="letter-spacing: 5px;">Other Destinations</h6> -->
+            <h1>Explore Top Destinations </h1>
+        </div>
+        <div class="row">
+            <div class="col-lg-3 col-md-6 mb-4">
+                <div class="destination-item position-relative overflow-hidden mb-2">
+                    <img class="img-fluid" src="{% static 'image/destination-1.jpg' %}" alt="United States">
+                    <a class="destination-overlay text-white text-decoration-none" href="">
+                        <h5 class="text-white">United States</h5>
+                        <span>100 Cities</span>
+                    </a>
+                </div>
+            </div>
+            <div class="col-lg-3 col-md-6 mb-4">
+                <div class="destination-item position-relative overflow-hidden mb-2">
+                    <img class="img-fluid" src=" {% static 'image/destination-2.jpg' %}" alt="United Kingdom">
+                    <a class="destination-overlay text-white text-decoration-none" href="">
+                        <h5 class="text-white">United Kingdom</h5>
+                        <span>100 Cities</span>
+                    </a>
+                </div>
+            </div>
+            <div class="col-lg-3 col-md-6 mb-4">
+                <div class="destination-item position-relative overflow-hidden mb-2">
+                    <img class="img-fluid" src="{% static 'image/destination-3.jpg' %}" alt="Australia">
+                    <a class="destination-overlay text-white text-decoration-none" href="">
+                        <h5 class="text-white">Australia</h5>
+                        <span>100 Cities</span>
+                    </a>
+                </div>
+            </div>
+            <div class="col-lg-3 col-md-6 mb-4">
+                <div class="destination-item position-relative overflow-hidden mb-2">
+                    <img class="img-fluid" src="{% static 'image/destination-4.jpg' %}" alt="India">
+                    <a class="destination-overlay text-white text-decoration-none" href="">
+                        <h5 class="text-white">Indonesia</h5>
+                        <span>100 Cities</span>
+                    </a>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<!-- Destination End -->
+ 
+<div class="location">
+    <h1>Car hire for any kind of Trip</h1>
+    <h4>Great deals at great prices, from the biggest car hire companies</h4>
+
+    <div class="droploc">
+        <form  action="/submit" method="POST">
+            <!-- Location input -->
+            <input type="text" placeholder="   type your location" name="tlocation"> 
+             <label for="pickup">Pick-up Date and Time:</label>
+             <input type="datetime-local" id="pickup" name="pickup" required> 
+            <!-- Drop-off date input -->
+             <label for="dropoff">Drop-off Date:</label>
+             <input type="date" id="dropoff" name="dropoff" required>
+            
+            <!-- Submit button -->
+            <input id="search" type="submit" value="submit">
+        </form>
+        
+
+     </div>
+</div><br>
+ 
+    <!-- Team Start -->
+    <div class="container-fluid py-5">
+        <div class="container pt-5 pb-3">
+            <div class="text-center mb-3 pb-3">
+                
+                <h1>Our Travel Guides</h1>
+            </div>
+            <div class="row">
+                <div class="col-lg-3 col-md-4 col-sm-6 pb-2">
+                    <div class="team-item bg-white mb-4">
+                        <div class="team-img position-relative overflow-hidden">
+                            <img class="img-fluid w-100" src="{% static 'image/Designer (1).jpeg' %}" alt="">
+                           
+                        </div>
+                        <div class="text-center py-4">
+                            <h5 class="text-truncate">Guide Name</h5>
+                            <p class="m-0">Designation</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-lg-3 col-md-4 col-sm-6 pb-2">
+                    <div class="team-item bg-white mb-4">
+                        <div class="team-img position-relative overflow-hidden">
+                            <img class="img-fluid w-100" src="{% static 'image/Designer (2).jpeg' %}" alt="">
+                           
+                        </div>
+                        <div class="text-center py-4">
+                            <h5 class="text-truncate">Guide Name</h5>
+                            <p class="m-0">Designation</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-lg-3 col-md-4 col-sm-6 pb-2">
+                    <div class="team-item bg-white mb-4">
+                        <div class="team-img position-relative overflow-hidden">
+                            <img class="img-fluid w-100" src="{% static 'image/Designer (3).jpeg' %}" alt="">
+                            
+                        </div>
+                        <div class="text-center py-4">
+                            <h5 class="text-truncate">Guide Name</h5>
+                            <p class="m-0">Designation</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-lg-3 col-md-4 col-sm-6 pb-2">
+                    <div class="team-item bg-white mb-4">
+                        <div class="team-img position-relative overflow-hidden">
+                            <img class="img-fluid w-100" src="{% static 'image/Designer (4).jpeg' %}" alt="">
+                         
+                        </div>
+                        <div class="text-center py-4">
+                            <h5 class="text-truncate">Guide Name</h5>
+                            <p class="m-0">Designation</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-lg-3 col-md-4 col-sm-6 pb-2">
+                    <div class="team-item bg-white mb-4">
+                        <div class="team-img position-relative overflow-hidden">
+                            <img class="img-fluid w-100" src="{% static 'image/Designer (5).jpeg' %}" alt="">
+                            
+                        </div>
+                        <div class="text-center py-4">
+                            <h5 class="text-truncate">Guide Name</h5>
+                            <p class="m-0">Designation</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-lg-3 col-md-4 col-sm-6 pb-2">
+                    <div class="team-item bg-white mb-4">
+                        <div class="team-img position-relative overflow-hidden">
+                            <img class="img-fluid w-100" src="{% static 'image/Designer.jpeg' %}" alt="">
+                          
+                        </div>
+                        <div class="text-center py-4">
+                            <h5 class="text-truncate">Guide Name</h5>
+                            <p class="m-0">Designation</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-lg-3 col-md-4 col-sm-6 pb-2">
+                    <div class="team-item bg-white mb-4">
+                        <div class="team-img position-relative overflow-hidden">
+                            <img class="img-fluid w-100" src="{% static 'image/Designer (6).jpeg' %}" alt="">
+                            
+                        </div>
+                        <div class="text-center py-4">
+                            <h5 class="text-truncate">Guide Name</h5>
+                            <p class="m-0">Designation</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-lg-3 col-md-4 col-sm-6 pb-2">
+                    <div class="team-item bg-white mb-4">
+                        <div class="team-img position-relative overflow-hidden">
+                            <img class="img-fluid w-100" src="{% static 'image/Designer (7).jpeg' %}" alt="">
+
+                        <div class="text-center py-4">
+                            <h5 class="text-truncate">Guide Name</h5>
+                            <p class="m-0">Designation</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- Team End -->
+    <footer style="background-color:#2c3e50; color:#ecf0f1; padding: 10;">
+        <div style="max-width: 1200px; margin:auto; display: flex; flex-wrap: wrap; justify-content: space-between;">
+          
+          <!-- About Us Section -->
+          <div style="flex: 1; min-width: 300px; margin: 10px;">
+            <h3>About Us</h3>
+            <p>We are a dedicated team of travel enthusiasts bringing you the best travel experiences and tips from around the world. Explore with us!</p>
+          </div>
+      
+          <!-- Navigation Links -->
+          <div style="flex: 1; min-width: 200px; margin: 10px;">
+            <h3>Quick Links</h3>
+            <ul style="list-style: none; padding: 0;">
+              <li><a href="testing.html" style="color:#ecf0f1; text-decoration: none;">Destinations</a></li>
+              <li><a href="/tours" style="color:#ecf0f1; text-decoration: none;">Tours</a></li>
+              <!-- <li><a href="/blog" style="color:#ecf0f1; text-decoration: none;">Blog</a></li> -->
+              <li><a href="/contact" style="color:#ecf0f1; text-decoration: none;">Contact Us</a></li>
+            </ul>
+          </div>
+      
+          <!-- Contact Information -->
+          <div style="flex: 1; min-width: 200px; margin: 10px;">
+            <h3>Contact Us</h3>
+            <p>Email: <a href="mailto:info@travelwebsite.com" style="color:#ecf0f1; text-decoration: none;">info@travelerawebsite.com</a></p>
+            <p>Phone: <a href="tel:+123456789" style="color:#ecf0f1; text-decoration: none;">+123 456 789</a></p>
+            <p>Address: 123 Travel Road, Wanderlust City, Country</p>
+          </div>
+      
+          <!-- Social Media Links -->
+          <div style="flex: 1; min-width: 200px; margin: 10px;">
+            <h3>Follow Us</h3>
+            <div style="display: flex; gap: 10px;">
+              <a href="https://facebook.com" target="_blank" style="color:#ecf0f1; text-decoration: none;">Facebook</a>
+              <a href="https://twitter.com" target="_blank" style="color:#ecf0f1; text-decoration: none;">Twitter</a>
+              <a href="https://instagram.com" target="_blank" style="color:#ecf0f1; text-decoration: none;">Instagram</a>
+            </div>
+          </div>
+      
+          <!-- Newsletter Subscription -->
+          <div style="flex: 1; min-width: 200px; margin: 10px;">
+            <h3>Subscribe to our Newsletter</h3>
+            <form action="/subscribe" method="POST">
+              <input type="email" name="email" placeholder="Your email" style="padding: 10px; width: calc(100% - 22px); margin-bottom: 10px; border: none; border-radius: 4px;">
+              <button type="submit" style="padding: 10px; background-color: #e74c3c; color: #ecf0f1; border: none; border-radius: 4px;">Subscribe</button>
+            </form>
+          </div>
+      
+        </div>
+        <div style="text-align: center; padding: 10px 0; border-top: 1px solid #34495e;">
+          <p>&copy; 2024 . All rights reserved.@AK</p>
+        </div>
+      </footer> 
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz" crossorigin="anonymous"></script>
+ <script src="{% static 'js/app.js' %}"></script>
+</body>
